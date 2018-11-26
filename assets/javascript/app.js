@@ -165,6 +165,7 @@ function showAnswer(choice) {
     stops, clears timer
     shows answer (row with confirmation of right/wrong & img, correct answer & img) 
     shows next question after 5 sec.*/
+  var isCorrect = true;
   clearInterval(intervalId);
   $(".gameCard").addClass("hide");
   $("#gameTimer").addClass("hide");
@@ -173,16 +174,13 @@ function showAnswer(choice) {
 
   if (choice === card.getAnswer()) {
     //Set span to CORRECT
-    $("#userMsg").html(
-      "<h3>Correct!  That's what I do: I drink and I know things.</h3>"
-    );
+    $("#userMsg").html("<h3>Correct!  You drink and you know things.</h3>");
     $("#yesNo").attr("src", yes);
     correct++;
   } else {
     //Set span to WRONG
-    $("#userMsg").html(
-      "<h3>NO...  The night is dark and full of terrors...</h3>"
-    );
+    isCorrect = false;
+    $("#userMsg").html("<h3>NO...  You and Jon Snow know nothing...</h3>");
     $("#yesNo").attr("src", no);
     if (choice === "") {
       blankTot++;
@@ -192,6 +190,13 @@ function showAnswer(choice) {
   }
 
   //Render the answer & image
+  console.log(isCorrect);
+  if (isCorrect) {
+    $("#answerPrefix").text("");
+  } else {
+    $("#answerPrefix").text("The Correct ");
+  }
+
   $("#theAnswer").text(card.getAnswer());
   $("#answerPic").attr("src", card.getSrc());
 
