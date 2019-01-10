@@ -11,3 +11,8 @@ This project is important because it is the preeminant form of testing your GoT 
 There is no help available.  Users are on their own.  Play at your own peril!
 
 Eric Finney maintains this project.   Players wishing to comment on the game are free to contact someone else (instructors and TAs excepted of course!).    
+
+Solution
+This game was created using HTML, CSS for styling, and Javascript/jQuery for functionality.  The page also uses the Bootstrap CDN to assist in the styling.
+
+
